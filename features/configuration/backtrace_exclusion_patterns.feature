@@ -66,6 +66,8 @@ Feature: Excluding lines from the backtrace
     """
     And a file named "spec/example_spec.rb" with:
     """ruby
+    require 'matchers/be_baz_matcher'
+
     RSpec.configure do |config|
       config.backtrace_exclusion_patterns << /be_baz_matcher/
     end
@@ -92,6 +94,8 @@ Feature: Excluding lines from the backtrace
     """
     And a file named "spec/example_spec.rb" with:
     """ruby
+    require 'matchers/be_baz_matcher'
+
     RSpec.configure do |config|
       config.backtrace_exclusion_patterns << /be_baz_matcher/
     end
@@ -104,4 +108,4 @@ Feature: Excluding lines from the backtrace
     """
     When I run `rspec --backtrace`
     Then the output should contain "1 example, 1 failure"
-    And the output should not contain "be_baz_matcher"
+    And the output should contain "be_baz_matcher"
