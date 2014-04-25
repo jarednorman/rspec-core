@@ -59,6 +59,7 @@ Feature: Excluding lines from the backtrace
     Given a file named "spec/matchers/be_baz_matcher.rb" with:
     """ruby
     RSpec::Matchers.define :be_baz do |_|
+      NOTHING IN THIS FILE RUNS, SO I CAN PUT GIBBERISH HERE
       match do |actual|
         actual == "baz"
       end
@@ -84,6 +85,7 @@ Feature: Excluding lines from the backtrace
   Scenario: Running `rspec` with the `--backtrace` option
     Given a file named "spec/matchers/be_baz_matcher.rb" with:
     """ruby
+    NOTHING IN THIS FILE RUNS, SO I CAN PUT GIBBERISH HERE
     RSpec::Matchers.define :be_baz do |_|
       match do |actual|
         actual == "baz"
